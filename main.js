@@ -37,10 +37,19 @@ Ex: addKeyPowerIndex(arrOfObj2)
   {2: 4, c: 'duck'}
 ]   
 */
+var arrOfObj1 = [
+  { a: 12 },
+  { b: 5 },
+  { c: 16 },
+  { d: 4 },
+  { e: 3 }
+]
 
-function addKeyPowerIndex() {
+function addKeyPowerIndex(arr) {
   // WRITE YOUR CODE UNDER THIS LINE  
-
+  // var obj = {};
+  arr.forEach((elem, i) => elem[i] = i)
+return arr;
 }
 
 
@@ -63,9 +72,10 @@ Ex: decreseBy(arrOfnum1,10)
 Ex: decreseBy(arrOfNum1,-6)
 => [83, 11, 39]
 */
-
-function decreseBy() {
+var arrOfNum1 = [77,5,33]
+function decreseBy(arr, num) {
   // WRITE YOUR CODE UNDER THIS LINE 
+  return arr.map(elem => elem - num)
 
 }
 
@@ -81,14 +91,14 @@ that takes an array of objects and number as a parameter
 and return a new array with only the object has a value inside 
 the key name longer than this number
 
-var arrOfObj4 = [
+var arrOfObj3 = [
   { name: "alex" },
   { name: "mercer"},
   { name: "alice" },
   { name: "zaheer"},
   { name: "elizabeth"}
 ]
-Ex: nameLongerThan(arrOfObj4,4)
+Ex: nameLongerThan(arrOfObj3,4)
 =>[
   { name: "mercer"},
   { name: "alice" },
@@ -96,14 +106,21 @@ Ex: nameLongerThan(arrOfObj4,4)
   { name: "elizabeth"}
 ]
 
-Ex: nameLongerThan(arrOfObj4,6)
+Ex: nameLongerThan(arrOfObj3,6)
 =>[
   { name: "elizabeth"}
 ]
 */
-
-function nameLongerThan() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+var arrOfObj3 = [
+  { name: "alex" },
+  { name: "mercer"},
+  { name: "alice" },
+  { name: "zaheer"},
+  { name: "elizabeth"}
+]
+function nameLongerThan(arr, num) {
+  // WRITE YOUR CODE UNDER THIS LINE
+  return arr.filter(elem => elem.name.length > num)         
 }
 
 
@@ -132,10 +149,18 @@ Ex: avgLength(arrOfObj4,"name")
 Ex: avgLength(arrOfObj4,"food")
 => 6.8
 */
+var arrOfObj4 = [
+  { name: "alex", food: "fried chiken" },
+  { name: "mercer", food: "pizaa" },
+  { name: "alice", food: "burger" },
+  { name: "zaheer", food: "hot dog" },
+  { name: "elizabeth", food: "eggs" }
+]
 
-function avgLength() {
+function avgLength(arr, key) {
   // WRITE YOUR CODE UNDER THIS LINE         
-
+  var sum = arr.reduce((acc, elem) => acc + elem[key].length, 0)
+  return sum/arr.length;
 }
 
 // Good luck :)
